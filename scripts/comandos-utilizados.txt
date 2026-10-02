@@ -1,1 +1,85 @@
+Infraestructura 2 - Comandos utilizados
 
+CISCO SWITCH
+
+# Ver VLANs configuradas
+show vlan brief
+
+# Ver enlaces trunk
+show interfaces trunk
+
+# Ver running-config
+show running-config
+
+# Configuración del puerto temporal para pruebas en VLAN 10
+enable
+configure terminal
+interface GigabitEthernet1/2
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+end
+
+
+FORTIGATE
+
+# Ver interfaces físicas y dirección WAN actual
+get system interface physical
+
+
+WEBTERM EXTERNO - VLAN 99
+
+# Configurar dirección IP temporal
+ip addr add 192.168.42.50/24 dev eth0
+
+# Configurar gateway
+ip route add default via 192.168.42.1
+
+# Verificar dirección IP
+ip addr show eth0
+
+# Verificar rutas
+ip route
+
+# Probar conectividad con FortiGate
+ping -c 4 192.168.42.24
+
+# Probar publicación HTTPS por VIP
+curl -vk https://192.168.42.24:8443
+
+
+WEBTERM TEMPORAL - VLAN 10
+
+# Configurar IP del cliente de prueba
+ip addr add 10.12.48.3/25 dev eth0
+
+# Configurar gateway de VLAN 10
+ip route add default via 10.12.48.1
+
+# Verificar conectividad con gateway
+ping -c 4 10.12.48.1
+
+# Probar acceso HTTPS permitido al WEB-SERVER
+curl -vk https://10.12.48.130
+
+# Probar bloqueo hacia DB-SERVER por MySQL/3306
+timeout 5 bash -c 'echo > /dev/tcp/10.12.48.131/3306'
+echo $?
+
+
+WEB-SERVER
+
+# Ver dirección IP
+ip addr show eth0
+
+# Ver tabla de rutas
+ip route
+
+# Verificar si HTTPS escucha en 443
+ss -lntp | grep :443
+
+# Validar configuración de Nginx
+nginx -t
+
+# Iniciar Nginx
+service nginx start
