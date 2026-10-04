@@ -3,8 +3,7 @@
 Laboratorio de seguridad en GNS3 utilizando FortiGate para segmentar una red de usuarios y servidores, controlar el acceso mediante políticas de firewall y publicar un servidor web HTTPS mediante NAT/VIP.
 
 ## 🎥 Video demostrativo
-
-[Ver video demostrativo](ENLACE_DEL_VIDEO)
+https://itlaedudo.sharepoint.com/:v:/s/Pratica/IQBJkP0zugAVQ5_01vwWvms3AaFfgD6Res3KbkynR6LBHgQ?e=cXabsG&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 ---
 
